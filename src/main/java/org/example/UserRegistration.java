@@ -1,13 +1,14 @@
 package org.example;
-
 import java.util.Scanner;
+
 import utility.UtilRegex;
 import utility.UtilValidation;
 
 
-public class UserMain {
 
-    public static void main(String[] args) {
+public class UserRegistration {
+
+    public static void main(String[] args) throws InvalidException {
         String firstName, lastName, email, mobileNumber, password;
 
         String[] email1 = { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com",
@@ -23,7 +24,7 @@ public class UserMain {
         firstName = sc.next();
 
         if (!UtilValidation.checkRegex(firstName, UtilRegex.name)) {
-            System.out.println("Please enter a valid name.");
+            throw new InvalidException("Please enter a valid first name");
         }
 
         System.out.println("Enter Last Name : ");
@@ -31,7 +32,7 @@ public class UserMain {
         lastName = sc1.next();
 
         if (!UtilValidation.checkRegex(lastName, UtilRegex.name)) {
-            System.out.println("Please enter a valid name.");
+            throw new InvalidException("Please enter a valid last name");
         }
 
         System.out.println("Enter email : ");
@@ -39,7 +40,7 @@ public class UserMain {
         email = sc2.next();
 
         if (!UtilValidation.checkRegex(email, UtilRegex.email)) {
-            System.out.println("Please enter a email.");
+            throw new InvalidException("Please enter a valid email");
         }
 
         System.out.println("Enter mobile number : ");
@@ -47,7 +48,7 @@ public class UserMain {
         mobileNumber = sc3.nextLine();
 
         if (!UtilValidation.checkRegex(mobileNumber, UtilRegex.mobileNumber)) {
-            System.out.println("Please enter a valid mobile number.");
+            throw new InvalidException("Please enter a valid mobile number");
         }
 
         System.out.println("Enter password : ");
@@ -55,7 +56,7 @@ public class UserMain {
         password = sc4.next();
 
         if (!UtilValidation.checkRegex(password, UtilRegex.password)) {
-            System.out.println("Please enter a valid password.");
+            throw new InvalidException("Please enter a valid password");
         }
 
         checkEmails(email1);
@@ -72,4 +73,5 @@ public class UserMain {
         }
         System.out.println("");
     }
+
 }
