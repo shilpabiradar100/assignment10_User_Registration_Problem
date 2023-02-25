@@ -4,10 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserMain {
-    public static boolean firstNameValidation(String FirstName){
-        String regex = "^[A-Z]{1}[a-z A-Z]{2,}$";
+    public static boolean firstNameValidation(String FirstName) {
+        String regex = "^[A-Z][a-z A-Z]{2,}$";
         Pattern p = Pattern.compile(regex);
-        if (FirstName == null){
+        if (FirstName == null) {
             return false;
         }
         Matcher m = p.matcher(FirstName);
@@ -15,10 +15,10 @@ public class UserMain {
 
     }
 
-    public static boolean lastNameValidation(String LastName){
-        String regex = "^[A-Z]{1}[a-z A-Z]{2,}$";
+    public static boolean lastNameValidation(String LastName) {
+        String regex = "^[A-Z][a-z A-Z]{2,}$";
         Pattern p = Pattern.compile(regex);
-        if (LastName == null){
+        if (LastName == null) {
             return false;
         }
         Matcher m = p.matcher(LastName);
@@ -26,14 +26,26 @@ public class UserMain {
 
     }
 
-    public static boolean emailValidation(String Email){
+    public static boolean emailValidation(String Email) {
         String regexEmail = "^[0-9 A-Z a-z]+(([._+-]*)[0-9A-Za-z]+)*@[0-9 A-Z a-z]+.[a-z]{2,4}([.][a-z]{2,3})*$";
         Pattern p = Pattern.compile(regexEmail);
         if (Email == null) {
             return false;
         }
         Matcher m = p.matcher(Email);
-        return  m.matches();
+        return m.matches();
+
+    }
+
+    public static boolean mobileNumValidation(String MobileNum) {
+        String regexMobileNum = "^[9][1]\\s[6-9]{1}[0-9]{9}$";
+        Pattern p = Pattern.compile(regexMobileNum);
+        if (MobileNum == null) {
+            return false;
+        }
+        Matcher m = p.matcher(MobileNum);
+
+        return m.matches();
 
     }
 
@@ -52,6 +64,10 @@ public class UserMain {
         System.out.println("Please Enter your Email: ");
         String EmailID = input.nextLine();
         System.out.println(emailValidation(EmailID));
+
+        System.out.println("Please Enter the mobile number with country code 91: ");
+        String MobileNum = input.nextLine();
+        System.out.println(mobileNumValidation(MobileNum));
 
 
     }
