@@ -4,10 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserMain {
-    public static boolean firstNameValidation(String FirstName) {
-        String regex = "^[A-Z][a-z A-Z]{2,}$";
-        Pattern p = Pattern.compile(regex);
-        if (FirstName == null) {
+    public static boolean firstNameValidation(String FirstName){
+        String regexFirstName = "^[A-Z][a-z A-Z]{2,}$";
+        Pattern p = Pattern.compile(regexFirstName);
+        if (FirstName == null){
             return false;
         }
         Matcher m = p.matcher(FirstName);
@@ -15,38 +15,45 @@ public class UserMain {
 
     }
 
-    public static boolean lastNameValidation(String LastName) {
-        String regex = "^[A-Z][a-z A-Z]{2,}$";
-        Pattern p = Pattern.compile(regex);
-        if (LastName == null) {
+    public static boolean lastNameValidation(String LastName){
+        String regexLastName = "^[A-Z][a-z A-Z]{2,}$";
+        Pattern p = Pattern.compile(regexLastName);
+        if (LastName == null){
             return false;
         }
         Matcher m = p.matcher(LastName);
         return m.matches();
 
     }
-
-    public static boolean emailValidation(String Email) {
+    public static boolean emailValidation(String Email){
         String regexEmail = "^[0-9 A-Z a-z]+(([._+-]*)[0-9A-Za-z]+)*@[0-9 A-Z a-z]+.[a-z]{2,4}([.][a-z]{2,3})*$";
         Pattern p = Pattern.compile(regexEmail);
         if (Email == null) {
             return false;
         }
         Matcher m = p.matcher(Email);
+        return  m.matches();
+
+    }
+    public static boolean mobileNumValidation(String MobileNum ){
+        String regexMobileNum = "^[9][1]\\s[6-9][0-9]{9}$";
+        Pattern p = Pattern.compile(regexMobileNum);
+        if (MobileNum == null){
+            return false;
+        }
+        Matcher m =p.matcher(MobileNum);
+
         return m.matches();
 
     }
-
-    public static boolean mobileNumValidation(String MobileNum) {
-        String regexMobileNum = "^[9][1]\\s[6-9]{1}[0-9]{9}$";
-        Pattern p = Pattern.compile(regexMobileNum);
-        if (MobileNum == null) {
+    public static boolean PasswordValidation(String password) {
+        String regexPassword = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+        Pattern p = Pattern.compile(regexPassword);
+        if ( password == null ){
             return false;
         }
-        Matcher m = p.matcher(MobileNum);
-
+        Matcher m = p.matcher(password);
         return m.matches();
-
     }
 
     public static void main(String[] args) {
@@ -69,6 +76,8 @@ public class UserMain {
         String MobileNum = input.nextLine();
         System.out.println(mobileNumValidation(MobileNum));
 
-
+        System.out.println("please enter the Password");
+        String Password = input.nextLine();
+        System.out.println(PasswordValidation(Password));
     }
 }
