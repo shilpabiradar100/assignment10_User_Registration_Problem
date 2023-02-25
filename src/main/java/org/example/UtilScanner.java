@@ -14,6 +14,6 @@ public class UtilScanner {
     }
 
     private static void message(String msg) {
-        System.out.print("Enter the "+msg);
+        System.out.print("Enter the " + msg);
     }
 }

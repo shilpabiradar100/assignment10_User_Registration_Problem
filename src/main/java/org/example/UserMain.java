@@ -6,6 +6,7 @@ import utility.UtilValidation;
 
 
 public class UserMain {
+
     public static void main(String[] args) {
         String firstName, lastName, email, mobileNumber, password;
 
