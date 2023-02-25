@@ -47,7 +47,7 @@ public class UserMain {
 
     }
     public static boolean PasswordValidation(String password) {
-        String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{8,}$";
+        String regexPassword = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8,}$";
         Pattern p = Pattern.compile(regexPassword);
         if ( password == null ){
             return false;
